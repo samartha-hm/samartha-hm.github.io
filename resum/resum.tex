@@ -1,0 +1,124 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper, left=0.4in, right=0.4in, top=0.3in, bottom=0.3in]{geometry}
+\usepackage{latexsym,titlesec,marvosym,verbatim,enumitem}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\urlstyle{same}
+\raggedbottom\raggedright
+\pagestyle{empty}
+\setlength{\tabcolsep}{0in}
+\setlength{\footskip}{0pt}
+\titleformat{\section}{\vspace{-5pt}\scshape\raggedright\fontsize{9.5}{11}\selectfont\bfseries}{}{0em}{}[\color{black}\titlerule\vspace{-8pt}]
+\newcommand{\resumeItem}[1]{\item{\small #1}}
+\newcommand{\resumeSubheading}[4]{\item\begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}\textbf{#1}&\textbf{\small #2}\\\textit{\small#3}&\textit{\small #4}\\\end{tabular*}\vspace{-3pt}}
+\newcommand{\resumeProjectHeading}[2]{\item\vspace{2pt}\begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}\small\textbf{#1}&\textbf{\small #2}\\\end{tabular*}\vspace{0pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in,label={},itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-4pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in,itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Samartha H M} \\
+    \small +91 8073339032 $|$ \href{mailto:samarthahmgowda@gmail.com}{\underline{samarthahmgowda@gmail.com}} $|$
+    \href{https://linkedin.com/in/samarthahm}{\underline{linkedin.com/in/samarthahm}} $|$
+    \href{https://github.com/samartha-hm}{\underline{github.com/samartha-hm}}
+\end{center}
+\vspace{-12pt}
+
+\section{Electronics and Communication Engineer --- Hardware Design, IoT Automation, Prototyping \& Testing}
+{\small Electronics and Communication Engineering graduate with hands-on experience in PCB design, real-time firmware development, and hardware-software integration. Proven ability to build and deploy complete embedded and robotic systems and take products from concept to market within a startup environment. Strong interest in embedded systems, autonomous robotics, and IoT automation.}
+\vspace{-4pt}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading{Srinivas Institute of Technology}{Expected Jun 2026}{B.E. Electronics \& Communication Engineering \textnormal{-- CGPA: 7.86/10}}{Valachil, Mangalore}
+  \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading{Experimind Labs Pvt. Ltd.}{Feb 2026 -- May 2026}{Core Team Member \textnormal{(Promoted from Electronics Intern within 2 months)}}{}
+      \resumeItemListStart
+        \resumeItem{Contributed to R\&D and full product cycle --- ideation, PCB design, prototyping, SMD/through-hole assembly, testing, and market release --- for two educational IoT kits delivered to 300+ students across 100+ production units.}
+        \resumeItem{Designed Kit 1 (14-component sensor board: 11 input sensors, 3 output actuators, custom PCB, JST wiring, battery pack) and Kit 2 (2-motor line follower robot platform with IR/LDR sensing) entirely from scratch with 98\%+ first-pass assembly quality.}
+        \resumeItem{Developed embedded control system for Raspberry Pi Pico W-based autonomous land survey robot with waypoint and free-path navigation using GPS, magnetometer, and gyroscope --- prototype built and demonstrated.}
+      \resumeItemListEnd
+
+    \resumeSubheading{ISPARK Learning Solutions}{Feb -- May 2026}{Embedded Systems \& IoT Intern \textnormal{(Remote)}}{}
+      \resumeItemListStart
+        \resumeItem{Built AI-powered smart waste segregation prototype in 5 days: ESP32 (sensors + servo) + ESP32-CAM + Python MobileNetV2 classifier (79\% accuracy on 600-image dataset) with custom serial protocol achieving sub-second DRY/WET/SKIP sorting response.}
+        \resumeItem{Designed complete hardware, firmware, and Python inference engine with confidence thresholding and real-time telemetry dashboard.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading{Autonomous Arecanut Drying Robot $|$ \normalfont\emph{Final Year Capstone Project (Team Lead)}}{}
+        \resumeItemListStart
+          \resumeItem{Designed 5-motor 4WD platform ($\pm$5cm accuracy on 5$\times$5m grid) 
+with dual-controller architecture (Raspberry Pi 5 + Arduino Mega) and custom binary 
+protocol achieving $<$50ms command latency for reliable real-time teleoperation.}
+
+\resumeItem{Designed BTS7960 motor drive circuitry (40A peak load) and implemented 
+grid-based serpentine traversal algorithm ensuring complete autonomous area coverage 
+across agricultural drying yards.}
+
+\resumeItem{Addressed post-harvest loss in arecanut farming by replacing labor-intensive 
+manual raking with a fully autonomous platform; built self-hosted Wi-Fi access point 
+enabling smartphone control without internet dependency --- critical for rural deployment.}
+
+\resumeItem{Architected end-to-end system integration across hardware, real-time firmware, 
+ML pipeline, and React frontend --- ensuring all subsystems operated reliably as a single 
+cohesive system under real field conditions.}
+
+\resumeItem{Built React dashboard with dark mode, hold-to-move safety mechanism, and 
+real-time telemetry visualization. Led 4-member cross-functional team from design through 
+field deployment and demonstration.}
+        \resumeItemListEnd
+
+      \resumeProjectHeading{One-Way Vehicle Direction Monitor $|$ \normalfont\emph{Embedded Safety System}}{}
+        \resumeItemListStart
+          \resumeItem{Built dual-lane wrong-way detection model (95\% accuracy) using HC-SR04 sensors with instant servo barrier activation and audio-visual alerts; programmed Arduino Uno with concurrent dual-lane sensor logic.}
+        \resumeItemListEnd
+
+      \resumeProjectHeading{Personal Projects \& Automation Tools $|$ \normalfont\emph{Independent Builds}}{}
+        \resumeItemListStart
+          \resumeItem{Shipped \href{https://sync-pad-io.vercel.app}{\underline{SyncPadIO}} (real-time text sharing), WebsiteON (serverless monitor + Telegram alerts), SonicSync (WebRTC audio), YotuDrive (Reed-Solomon encoding), Mobtola Pro (ADB backup) --- Python, React, Node.js, TypeScript.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.0in,label={},itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item\small
+     \textbf{Programming}{: Python, C/C++, JavaScript/TypeScript, Arduino IDE} \\
+     \textbf{Embedded Systems}{: Arduino (UNO/Mega), Raspberry Pi (5/Pico W), ESP32, Real-Time Control, PWM, Motor Control, Sensor Integration} \\
+     \textbf{Circuit Design \& PCB}{: KiCad, EasyEDA, LTspice, BTS7960 Drivers, Power Electronics, SMD/Through-Hole Soldering, PCB Layout} \\
+     \textbf{AI \& IoT}{: MobileNetV2, OpenCV, Computer Vision, IoT System Integration, Real-Time Data Acquisition} \\
+     \textbf{Tools \& Workflow}{: Git, VS Code, Linux, Adobe Premiere Pro, Canva, Microsoft Office}
+ \end{itemize}
+ \vspace{-5pt}
+
+\section{Leadership \& Extracurriculars}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading{Event Organizer $|$ \normalfont\emph{ENVISION 2k25 National Tech Fest}}{}
+      \resumeItemListStart
+        \resumeItem{Organized Line Follower robotics competition for 100+ participants and led promotional design team.}
+      \resumeItemListEnd
+    \resumeProjectHeading{Editor \& Designer $|$ \normalfont\emph{STEADY Department Club (2024 \& 2025)}}{}
+      \resumeItemListStart
+        \resumeItem{Designed 50-page technical magazine distributed to 500+ students and faculty. Organized 50+ technical and non-technical college events.}
+      \resumeItemListEnd
+    \resumeProjectHeading{Active Member \& Junior Mentor $|$ \normalfont\emph{TECHBOTS Robotics Club}}{}
+      \resumeItemListStart
+        \resumeItem{Mentored junior students in embedded programming and PCB design. Contributed to robotics systems development.}
+      \resumeItemListEnd
+    \resumeProjectHeading{Content Creator $|$ \normalfont\emph{DreamBeatz YouTube Channel}}{}
+      \resumeItemListStart
+        \resumeItem{Music and lyrical edit content with 3K+ subscribers.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\end{document}
