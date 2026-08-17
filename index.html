@@ -1055,11 +1055,42 @@
         .project-hero-desc {
             font-family: var(--serif);
             font-size: 16px;
-            color: var(--gray);
+            color: var(--off);
             line-height: 1.75;
             font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .proj-pts {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             margin-bottom: 28px;
-            max-width: 460px;
+        }
+
+        .proj-pts li {
+            font-family: var(--serif);
+            font-size: 14.5px;
+            color: var(--gray);
+            line-height: 1.65;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .proj-pts li strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .proj-pts li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+            font-size: 11px;
+            top: 2px;
         }
 
         .metrics-row {
@@ -2006,13 +2037,13 @@
         <div class="project-hero reveal">
             <div class="project-hero-inner">
                 <div class="project-hero-left">
-                    <div class="proj-badge">Capstone Project — Team Lead · 6 Months · Field-Tested</div>
+                    <div class="proj-badge">Capstone Project — Team Lead · 6 Months · Team of 4 · Field-Tested</div>
                     <div class="project-hero-title">AUTONOMOUS ARECANUT<br>DRYING ROBOT</div>
-                    <p class="project-hero-desc">A 4WD autonomous platform automating arecanut sun-drying yard operations, combining a decentralized robotic control system with an offline deep learning pipeline for drying-stage quality assessment.</p>
+                    <p class="project-hero-desc">A 4WD autonomous platform automating arecanut sun-drying yard operations for farmers, combining a decentralized robotic control system with an offline deep learning pipeline for automated drying-stage quality assessment.</p>
                     <div class="metrics-row">
                         <div>
                             <div class="pm-val">4</div>
-                            <div class="pm-lbl">Team of 4</div>
+                            <div class="pm-lbl">Team of 4 (Lead)</div>
                         </div>
                         <div>
                             <div class="pm-val">6-Byte</div>
@@ -2024,14 +2055,31 @@
                         </div>
                         <div>
                             <div class="pm-val">98.2%</div>
-                            <div class="pm-lbl">Peeled Acc (ResNet-50)</div>
+                            <div class="pm-lbl">ResNet-50 Accuracy</div>
                         </div>
                     </div>
+                    <ul class="proj-pts">
+                        <li><strong>Team Leadership:</strong> Led a 4-person team across mechanical, electronics, firmware, and dashboard layers over a 6-month build cycle.</li>
+                        <li><strong>Three-Layer Control Architecture:</strong> React/FastAPI/WebSocket dashboard (Frontend) &rarr; Raspberry Pi 5 as middleware, auto-detecting hardware ports and applying calibration trims (Backend) &rarr; Arduino Mega running a non-blocking finite state machine for real-time PWM generation (Firmware).</li>
+                        <li><strong>Robust Binary Protocol:</strong> Built a custom 6-byte binary protocol between the two boards, with an XOR-based checksum on every packet to discard corrupted data and prevent erroneous motor commands.</li>
+                        <li><strong>Autonomous Coverage:</strong> Implemented a dead-reckoning "vertical-serpentine" grid traversal algorithm for autonomous coverage of the drying yard, with ultrasonic obstacle detection and debounced auto-recovery.</li>
+                        <li><strong>Isolated Power Architecture:</strong> Designed a dual-battery isolated power architecture (separate logic and actuation batteries) to eliminate brownout resets under high motor load &mdash; a common failure point in robots drawing both compute and actuation from one supply.</li>
+                        <li><strong>Safety &amp; Local Hotspot:</strong> Built the control dashboard with a Hold-to-Move safety mechanism that instantly halts the robot if directional input is released, served over a Pi-hosted local Wi-Fi hotspot.</li>
+                        <li><strong>Deep Learning Quality Pipeline:</strong> Developed and validated (offline) a U-Net + ResNet-50 deep learning pipeline for automated drying-stage classification &mdash; U-Net selected for its precise pixel-level segmentation of arecanut from background noise (Dice Coefficient: 0.92); ResNet-50 achieved 96.5% accuracy (unpeeled) and 98.2% (peeled) across 4 drying stages (validated proof-of-concept; future on-device integration planned via the Pi 5's Hailo-8L accelerator).</li>
+                        <li><strong>Mechanical Engineering:</strong> Fabricated and field-tested a mechanically stable, low-profile 4WD chassis with a centrally mounted roller mechanism.</li>
+                    </ul>
                     <div class="ptags">
-                        <span class="ptag">Raspberry Pi 5</span><span class="ptag">Arduino Mega FSM</span>
-                        <span class="ptag">React / FastAPI / WebSocket</span><span class="ptag">6-Byte XOR Protocol</span>
-                        <span class="ptag">Dead-Reckoning Serpentine</span><span class="ptag">Dual-Battery Isolated Power</span>
-                        <span class="ptag">Pi WiFi Hotspot</span><span class="ptag">Offline U-Net &amp; ResNet-50</span>
+                        <span class="ptag">Raspberry Pi 5</span>
+                        <span class="ptag">Arduino Mega FSM</span>
+                        <span class="ptag">React / FastAPI / WebSocket</span>
+                        <span class="ptag">6-Byte XOR Protocol</span>
+                        <span class="ptag">Dead-Reckoning Serpentine</span>
+                        <span class="ptag">Dual-Battery Isolated Power</span>
+                        <span class="ptag">Hold-to-Move Safety</span>
+                        <span class="ptag">U-Net (Dice: 0.92)</span>
+                        <span class="ptag">ResNet-50 (98.2%)</span>
+                        <span class="ptag">Hailo-8L Ready</span>
+                        <span class="ptag">Field-Tested 4WD</span>
                     </div>
                     <a href="https://github.com/samartha-hm/ARECAbot" target="_blank" class="proj-link">View Repository
                         ↗</a>
