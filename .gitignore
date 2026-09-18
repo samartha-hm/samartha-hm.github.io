@@ -1,3 +1,7 @@
 resum/
 *.md
+!README.md
 *.txt
+!LICENSE
+.DS_Store
+Thumbs.db
