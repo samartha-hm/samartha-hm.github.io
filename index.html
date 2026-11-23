@@ -15,12 +15,12 @@
         content="Electronics engineer and IoT product developer experienced in embedded firmware, PCB design, 4G/cloud connectivity, and robotics. Applies LLMs and AI coding agents to engineering research, prototyping, and debugging.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samartha-hm.github.io/">
-    <meta property="og:image" content="https://samartha-hm.github.io/assets/webpage.png">
+    <meta property="og:image" content="https://samartha-hm.github.io/assets/areca-robot.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Samartha H M — Electronics Engineer & IoT Product Developer">
     <meta name="twitter:description"
         content="Electronics engineer and IoT product developer experienced in embedded firmware, PCB design, 4G/cloud connectivity, and robotics. Applies LLMs and AI coding agents to engineering research, prototyping, and debugging.">
-    <meta name="twitter:image" content="https://samartha-hm.github.io/assets/webpage.png">
+    <meta name="twitter:image" content="https://samartha-hm.github.io/assets/areca-robot.jpg">
     <link rel="canonical" href="https://samartha-hm.github.io/">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23080808'/><text x='50' y='70' font-size='56' font-family='monospace' font-weight='bold' fill='%23c87941' text-anchor='middle'>S</text></svg>">
@@ -928,7 +928,7 @@
 
         .project-hero-inner {
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 1.15fr 0.85fr;
             min-height: 480px;
         }
 
@@ -940,12 +940,16 @@
             border-left: 1px solid var(--copper-border);
             position: relative;
             overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-hero-photo {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
         }
 
@@ -956,12 +960,15 @@
             height: 100%;
             overflow: hidden;
             display: flex;
+            align-items: center;
+            background: #000;
         }
 
         .carousel-track {
             display: flex;
             width: 100%;
             height: 100%;
+            align-items: center;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -969,7 +976,9 @@
             flex: 0 0 100%;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            max-height: 100%;
+            object-fit: contain;
+            background: #000;
         }
 
         .c-btn {
@@ -1716,8 +1725,9 @@
                 display: block;
                 border-left: none;
                 border-top: 1px solid var(--copper-border);
-                height: 380px;
+                height: 420px;
                 width: 100%;
+                background: #000;
             }
 
             .projects-grid {
@@ -1749,7 +1759,8 @@
             }
 
             .project-hero-right {
-                height: 280px;
+                height: 300px;
+                background: #000;
             }
 
             .exp-card {

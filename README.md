@@ -7,18 +7,7 @@
 
 > **Electronics engineer and IoT product developer** experienced in embedded firmware, PCB design, 4G/cloud connectivity, and robotics. Applies LLMs and AI coding agents to engineering research, rapid prototyping, and firmware debugging.
 
----
-
-## 📸 Portfolio Preview
-
-<p align="center">
-  <a href="https://samartha-hm.github.io/">
-    <img src="assets/webpage.png" alt="Samartha H M Portfolio Preview" width="100%" style="border-radius: 8px; border: 1px solid #c87941;" />
-  </a>
-</p>
-
-*Live Site: [https://samartha-hm.github.io](https://samartha-hm.github.io/)*  
-*Resume Source: [`resume.tex`](resume.tex) | Download PDF: [`Samartha_HM_Resume.pdf`](Samartha_HM_Resume.pdf)*
+*Live Portfolio: [https://samartha-hm.github.io](https://samartha-hm.github.io/) | Official Resume: [`Samartha_HM_Resume.pdf`](Samartha_HM_Resume.pdf)*
 
 ---
 
@@ -100,10 +89,8 @@ samartha-hm.github.io/
 │   ├── areca-2.jpg            # Electronics & wiring view
 │   ├── areca-3.jpg            # Chassis assembly & motor drives
 │   ├── areca-4.jpg            # Field testing on drying yard
-│   ├── areca-5.jpg            # Mechanical roller & frame layout
-│   └── webpage.png            # OpenGraph and README preview banner
+│   └── areca-5.jpg            # Mechanical roller & frame layout
 ├── index.html                 # Complete single-page portfolio application
-├── resume.tex                 # Latest LaTeX source of professional resume
 ├── Samartha_HM_Resume.pdf     # Official downloadable developer resume
 ├── LICENSE                    # MIT Open Source License
 └── README.md                  # Comprehensive developer & project documentation
