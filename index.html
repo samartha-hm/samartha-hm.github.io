@@ -928,56 +928,109 @@
 
         .project-hero-inner {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1fr 1fr;
             min-height: 480px;
         }
 
         .project-hero-left {
-            padding: 56px;
+            padding: 56px 48px;
         }
 
         .project-hero-right {
             border-left: 1px solid var(--copper-border);
             position: relative;
-            overflow: hidden;
-            background: #000;
+            background: #060606;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            padding: 36px 32px;
+            box-sizing: border-box;
+            gap: 14px;
         }
 
-        .project-hero-photo {
+        .carousel-header-bar {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+            max-width: 580px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--gray2);
+            text-transform: uppercase;
+        }
+
+        .carousel-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .carousel-pulse {
+            width: 6px;
+            height: 6px;
+            background: var(--copper);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--copper);
+        }
+
+        .carousel-counter {
+            color: var(--copper);
+            font-weight: 600;
+            letter-spacing: 0.1em;
         }
 
         /* Carousel Styles */
         .hero-carousel {
             position: relative;
             width: 100%;
-            height: 100%;
+            max-width: 580px;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
             display: flex;
             align-items: center;
             background: #000;
+            border: 1px solid var(--copper-border);
+            border-radius: 2px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
         }
 
         .carousel-track {
             display: flex;
             width: 100%;
             height: 100%;
-            align-items: center;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .carousel-track .project-hero-photo {
+        .carousel-slide {
             flex: 0 0 100%;
             width: 100%;
             height: 100%;
+            min-width: 0;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .carousel-slide .project-hero-photo {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
             max-height: 100%;
+            min-width: 0;
+            min-height: 0;
             object-fit: contain;
+            display: block;
+            pointer-events: none;
             background: #000;
         }
 
@@ -985,7 +1038,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(8, 8, 8, 0.7);
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             color: var(--white);
             border: 1px solid var(--copper-border);
             width: 36px;
@@ -994,27 +1049,68 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 2;
+            z-index: 3;
             transition: all 0.2s;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .c-btn:hover {
             background: var(--copper);
             border-color: var(--copper);
+            color: #000;
         }
 
-        .c-prev { left: 16px; }
-        .c-next { right: 16px; }
+        .c-prev { left: 12px; }
+        .c-next { right: 12px; }
+
+        .c-expand-hint {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--gray2);
+            border: 1px solid var(--copper-border);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            cursor: pointer;
+            z-index: 3;
+            transition: all 0.2s;
+        }
+
+        .c-expand-hint:hover {
+            color: var(--white);
+            border-color: var(--copper);
+            background: rgba(200, 121, 65, 0.2);
+        }
+
+        .carousel-footer-bar {
+            width: 100%;
+            max-width: 580px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .carousel-caption {
+            font-family: var(--mono);
+            font-size: 10px;
+            line-height: 1.4;
+            color: var(--gray2);
+            flex: 1;
+            letter-spacing: 0.03em;
+        }
 
         .carousel-dots {
-            position: absolute;
-            bottom: 16px;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
-            gap: 8px;
-            z-index: 2;
+            gap: 6px;
+            align-items: center;
         }
 
         .c-dot {
@@ -1022,9 +1118,9 @@
             -webkit-appearance: none;
             border: none;
             padding: 0;
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.3);
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 50%;
             cursor: pointer;
             transition: all 0.2s;
@@ -1036,7 +1132,8 @@
 
         .c-dot.active {
             background: var(--copper);
-            transform: scale(1.2);
+            width: 16px;
+            border-radius: 3px;
         }
 
         .project-hero-ph {
@@ -1662,6 +1759,114 @@
             }
         }
 
+        /* LIGHTBOX MODAL */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border: 1px solid var(--copper-border);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+        }
+
+        .lightbox-caption {
+            margin-top: 14px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--white);
+            letter-spacing: 0.05em;
+            text-align: center;
+            max-width: 720px;
+        }
+
+        .lightbox-counter {
+            margin-top: 4px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--copper);
+            letter-spacing: 0.1em;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(12, 12, 12, 0.8);
+            border: 1px solid var(--copper-border);
+            color: var(--white);
+            font-size: 18px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100000;
+        }
+
+        .lightbox-close:hover {
+            background: var(--copper);
+            color: #000;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(12, 12, 12, 0.8);
+            border: 1px solid var(--copper-border);
+            color: var(--white);
+            width: 46px;
+            height: 46px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 16px;
+            z-index: 100000;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--copper);
+            color: #000;
+        }
+
+        .lb-prev { left: 24px; }
+        .lb-next { right: 24px; }
+
         /* MOBILE */
         .mob-overlay {
             display: none;
@@ -1722,12 +1927,17 @@
             }
 
             .project-hero-right {
-                display: block;
                 border-left: none;
                 border-top: 1px solid var(--copper-border);
-                height: 420px;
+                padding: 32px 24px;
                 width: 100%;
-                background: #000;
+                height: auto;
+            }
+
+            .hero-carousel {
+                width: 100%;
+                max-width: 100%;
+                aspect-ratio: 16 / 9;
             }
 
             .projects-grid {
@@ -1758,9 +1968,39 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-hero-left {
+                padding: 32px 20px;
+            }
+
             .project-hero-right {
-                height: 300px;
-                background: #000;
+                padding: 24px 16px;
+                gap: 10px;
+                height: auto;
+            }
+
+            .hero-carousel {
+                width: 100%;
+                max-width: 100%;
+                aspect-ratio: 16 / 9;
+            }
+
+            .c-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 11px;
+            }
+
+            .c-prev { left: 8px; }
+            .c-next { right: 8px; }
+
+            .carousel-footer-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .carousel-dots {
+                align-self: center;
             }
 
             .exp-card {
@@ -2155,16 +2395,36 @@
                     <a href="https://github.com/samartha-hm/ARECAbot" target="_blank" class="proj-link">View Repository ↗</a>
                 </div>
                 <div class="project-hero-right">
+                    <div class="carousel-header-bar">
+                        <span class="carousel-badge"><span class="carousel-pulse"></span> HARDWARE ARCHIVE</span>
+                        <span class="carousel-counter" id="carouselCounter">01 / 05</span>
+                    </div>
                     <div class="hero-carousel" id="arecaCarousel">
                         <div class="carousel-track" id="arecaTrack">
-                            <img class="project-hero-photo" src="assets/areca-robot.jpg" alt="Autonomous Arecanut Drying Robot - Field view" loading="eager" fetchpriority="high">
-                            <img class="project-hero-photo" src="assets/areca-2.jpg" alt="Autonomous Arecanut Drying Robot - Electronics and wiring" loading="lazy">
-                            <img class="project-hero-photo" src="assets/areca-3.jpg" alt="Autonomous Arecanut Drying Robot - Chassis assembly and motor drives" loading="lazy">
-                            <img class="project-hero-photo" src="assets/areca-4.jpg" alt="Autonomous Arecanut Drying Robot - Field testing on drying yard" loading="lazy">
-                            <img class="project-hero-photo" src="assets/areca-5.jpg" alt="Autonomous Arecanut Drying Robot - Mechanical roller and chassis" loading="lazy">
+                            <div class="carousel-slide" onclick="openLightbox(0)">
+                                <img class="project-hero-photo" src="assets/areca-robot.jpg" alt="Autonomous Arecanut Drying Robot - Field view" loading="eager" fetchpriority="high">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(1)">
+                                <img class="project-hero-photo" src="assets/areca-2.jpg" alt="Autonomous Arecanut Drying Robot - Electronics and wiring" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(2)">
+                                <img class="project-hero-photo" src="assets/areca-3.jpg" alt="Autonomous Arecanut Drying Robot - Chassis assembly and motor drives" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(3)">
+                                <img class="project-hero-photo" src="assets/areca-4.jpg" alt="Autonomous Arecanut Drying Robot - Field testing on drying yard" loading="lazy">
+                            </div>
+                            <div class="carousel-slide" onclick="openLightbox(4)">
+                                <img class="project-hero-photo" src="assets/areca-5.jpg" alt="Autonomous Arecanut Drying Robot - Mechanical roller and chassis" loading="lazy">
+                            </div>
                         </div>
-                        <button class="c-btn c-prev" onclick="moveCarousel(-1)" aria-label="Previous image">❮</button>
-                        <button class="c-btn c-next" onclick="moveCarousel(1)" aria-label="Next image">❯</button>
+                        <button class="c-btn c-prev" onclick="moveCarousel(-1, event)" aria-label="Previous image">❮</button>
+                        <button class="c-btn c-next" onclick="moveCarousel(1, event)" aria-label="Next image">❯</button>
+                        <button class="c-expand-hint" onclick="openLightbox(currentSlide)" aria-label="Expand image" title="Click to view full photo">⛶</button>
+                    </div>
+                    <div class="carousel-footer-bar">
+                        <div class="carousel-caption" id="carouselCaption">
+                            Field Prototype · 5-Motor 4WD chassis with stirring roller on drying yard
+                        </div>
                         <div class="carousel-dots" id="arecaDots">
                             <button class="c-dot active" onclick="setCarousel(0)" aria-label="Slide 1"></button>
                             <button class="c-dot" onclick="setCarousel(1)" aria-label="Slide 2"></button>
@@ -2372,17 +2632,59 @@
         </div>
     </section>
 
+    <!-- LIGHTBOX MODAL -->
+    <div id="imgLightbox" class="lightbox-modal" onclick="closeLightbox(event)" aria-hidden="true" role="dialog" aria-label="Hardware Archive Fullscreen Viewer">
+        <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close fullscreen view">✕</button>
+        <button class="lightbox-nav lb-prev" onclick="lightboxNav(-1, event)" aria-label="Previous photo">❮</button>
+        <button class="lightbox-nav lb-next" onclick="lightboxNav(1, event)" aria-label="Next photo">❯</button>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="Hardware full view">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+            <div id="lightboxCounter" class="lightbox-counter">01 / 05</div>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 Samartha H M</p>
         <p>Built with precision · Deployed with purpose</p>
     </footer>
 
     <script>
-        // === Carousel Logic ===
+        // === Carousel & Lightbox Logic ===
         let currentSlide = 0;
         const totalSlides = 5;
         const track = document.getElementById('arecaTrack');
         const dots = document.querySelectorAll('#arecaDots .c-dot');
+        const counterEl = document.getElementById('carouselCounter');
+        const captionEl = document.getElementById('carouselCaption');
+
+        const slideData = [
+            {
+                src: 'assets/areca-robot.jpg',
+                caption: 'Field Prototype · 5-Motor 4WD chassis with stirring roller on drying yard',
+                alt: 'Autonomous Arecanut Drying Robot - Field view'
+            },
+            {
+                src: 'assets/areca-2.jpg',
+                caption: 'Electronics Subsystem · Dual BTS7960 40A drivers, power distribution & relay board',
+                alt: 'Autonomous Arecanut Drying Robot - Electronics and wiring'
+            },
+            {
+                src: 'assets/areca-3.jpg',
+                caption: 'Chassis & Actuation · Welded aluminum frame, drive train & TECHBOTS-SIT emblem',
+                alt: 'Autonomous Arecanut Drying Robot - Chassis assembly and motor drives'
+            },
+            {
+                src: 'assets/areca-4.jpg',
+                caption: 'Operational Field Testing · Serpentine grid traversal over harvested arecanut crop',
+                alt: 'Autonomous Arecanut Drying Robot - Field testing on drying yard'
+            },
+            {
+                src: 'assets/areca-5.jpg',
+                caption: 'Mechanical Roller Assembly · Front-mounted rotating stirrer for sun exposure',
+                alt: 'Autonomous Arecanut Drying Robot - Mechanical roller and chassis'
+            }
+        ];
 
         function updateCarousel() {
             if (!track) return;
@@ -2394,19 +2696,99 @@
                     dot.classList.remove('active');
                 }
             });
+            if (counterEl) {
+                counterEl.textContent = `0${currentSlide + 1} / 0${totalSlides}`;
+            }
+            if (captionEl && slideData[currentSlide]) {
+                captionEl.textContent = slideData[currentSlide].caption;
+            }
         }
 
-        window.moveCarousel = function(direction) {
+        window.moveCarousel = function(direction, e) {
+            if (e) e.stopPropagation();
             currentSlide += direction;
             if (currentSlide < 0) currentSlide = totalSlides - 1;
             if (currentSlide >= totalSlides) currentSlide = 0;
             updateCarousel();
         };
 
-        window.setCarousel = function(index) {
+        window.setCarousel = function(index, e) {
+            if (e) e.stopPropagation();
             currentSlide = index;
             updateCarousel();
         };
+
+        // Lightbox functions
+        const lightbox = document.getElementById('imgLightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbCap = document.getElementById('lightboxCaption');
+        const lbCount = document.getElementById('lightboxCounter');
+        let lightboxIndex = 0;
+
+        window.openLightbox = function(index) {
+            lightboxIndex = (typeof index === 'number') ? index : currentSlide;
+            if (!lightbox || !lbImg) return;
+            updateLightbox();
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        function updateLightbox() {
+            if (!slideData[lightboxIndex]) return;
+            lbImg.src = slideData[lightboxIndex].src;
+            lbImg.alt = slideData[lightboxIndex].alt;
+            if (lbCap) lbCap.textContent = slideData[lightboxIndex].caption;
+            if (lbCount) lbCount.textContent = `0${lightboxIndex + 1} / 0${totalSlides}`;
+        }
+
+        window.closeLightbox = function(e) {
+            if (e && e.target && e.target.closest('.lightbox-content') && !e.target.classList.contains('lightbox-close')) return;
+            if (!lightbox) return;
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        window.lightboxNav = function(dir, e) {
+            if (e) e.stopPropagation();
+            lightboxIndex += dir;
+            if (lightboxIndex < 0) lightboxIndex = totalSlides - 1;
+            if (lightboxIndex >= totalSlides) lightboxIndex = 0;
+            updateLightbox();
+        };
+
+        // Touch swipe support for Carousel & Lightbox
+        let touchStartX = 0, touchEndX = 0;
+        const cTrack = document.getElementById('arecaCarousel');
+        if (cTrack) {
+            cTrack.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            cTrack.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) moveCarousel(1);
+                if (touchEndX > touchStartX + 40) moveCarousel(-1);
+            }, { passive: true });
+        }
+        if (lightbox) {
+            lightbox.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            lightbox.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) lightboxNav(1);
+                if (touchEndX > touchStartX + 40) lightboxNav(-1);
+            }, { passive: true });
+        }
+
+        // Keyboard arrow navigation
+        document.addEventListener('keydown', e => {
+            if (lightbox && lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') lightboxNav(-1);
+                if (e.key === 'ArrowRight') lightboxNav(1);
+            } else {
+                if (e.key === 'ArrowLeft') moveCarousel(-1);
+                if (e.key === 'ArrowRight') moveCarousel(1);
+            }
+        });
 
         // LOADER: Instant smooth dismiss on load
         const ldFill = document.getElementById('ldFill'), ldPct = document.getElementById('ldPct'), loader = document.getElementById('loader');
@@ -2426,23 +2808,6 @@
             window.addEventListener('load', dismissLoader);
             setTimeout(dismissLoader, 600);
         }
-
-        // Touch swipe support for Carousel
-        let touchStartX = 0, touchEndX = 0;
-        const cTrack = document.getElementById('arecaCarousel');
-        if (cTrack) {
-            cTrack.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-            cTrack.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                if (touchEndX < touchStartX - 40) moveCarousel(1);
-                if (touchEndX > touchStartX + 40) moveCarousel(-1);
-            }, { passive: true });
-        }
-        // Keyboard arrow navigation for Carousel
-        document.addEventListener('keydown', e => {
-            if (e.key === 'ArrowLeft') moveCarousel(-1);
-            if (e.key === 'ArrowRight') moveCarousel(1);
-        });
 
         // CURSOR
         const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
