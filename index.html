@@ -14,6 +14,14 @@
     <meta property="og:description"
         content="I build complete embedded systems — from PCB design through real-time firmware to production deployment.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samartha-hm.github.io/">
+    <meta property="og:image" content="https://samartha-hm.github.io/assets/webpage.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Samartha H M — Embedded Systems & Robotics Engineer">
+    <meta name="twitter:description"
+        content="I build complete embedded systems — from PCB design through real-time firmware to production deployment.">
+    <meta name="twitter:image" content="https://samartha-hm.github.io/assets/webpage.png">
+    <link rel="canonical" href="https://samartha-hm.github.io/">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23080808'/><text x='50' y='70' font-size='56' font-family='monospace' font-weight='bold' fill='%23c87941' text-anchor='middle'>S</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,12 +41,27 @@
             --copper-glow: rgba(200, 121, 65, 0.06);
             --white: #f0ede8;
             --off: #d4d0c8;
-            --gray: #7a7670;
-            --gray2: #444440;
+            --gray: #9c9891;
+            --gray2: #65635e;
             --gray3: #2a2a28;
             --display: 'Oxanium', sans-serif;
             --serif: 'Crimson Pro', serif;
             --mono: 'JetBrains Mono', monospace;
+        }
+
+        /* ACCESSIBILITY & FOCUS STYLES */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--copper2);
+            outline-offset: 3px;
+        }
+
+        @media (pointer: coarse) {
+            body, a, button, .c-btn, .c-dot {
+                cursor: auto !important;
+            }
+            #cur, #cur-ring {
+                display: none !important;
+            }
         }
 
         *,
@@ -986,6 +1009,10 @@
         }
 
         .c-dot {
+            appearance: none;
+            -webkit-appearance: none;
+            border: none;
+            padding: 0;
             width: 8px;
             height: 8px;
             background: rgba(255, 255, 255, 0.3);
@@ -1662,10 +1689,18 @@
 
             .about-layout {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .about-right {
-                display: none;
+                display: block;
+                width: 100%;
+            }
+
+            .about-stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 8px;
             }
 
             .skills-layout {
@@ -1674,10 +1709,15 @@
 
             .project-hero-inner {
                 grid-template-columns: 1fr;
+                min-height: auto;
             }
 
             .project-hero-right {
-                display: none;
+                display: block;
+                border-left: none;
+                border-top: 1px solid var(--copper-border);
+                height: 380px;
+                width: 100%;
             }
 
             .projects-grid {
@@ -1690,10 +1730,13 @@
 
             .contact-inner {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .contact-right {
-                display: none;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 8px;
             }
         }
 
@@ -1703,6 +1746,10 @@
             .projects-grid,
             .lead-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .project-hero-right {
+                height: 280px;
             }
 
             .exp-card {
@@ -2083,20 +2130,20 @@
                 <div class="project-hero-right">
                     <div class="hero-carousel" id="arecaCarousel">
                         <div class="carousel-track" id="arecaTrack">
-                            <img class="project-hero-photo" src="assets/areca-robot.jpg" alt="Autonomous Arecanut Drying Robot - View 1">
-                            <img class="project-hero-photo" src="assets/areca-2.jpg" alt="Autonomous Arecanut Drying Robot - View 2">
-                            <img class="project-hero-photo" src="assets/areca-3.jpg" alt="Autonomous Arecanut Drying Robot - View 3">
-                            <img class="project-hero-photo" src="assets/areca-4.jpg" alt="Autonomous Arecanut Drying Robot - View 4">
-                            <img class="project-hero-photo" src="assets/areca-5.jpg" alt="Autonomous Arecanut Drying Robot - View 5">
+                            <img class="project-hero-photo" src="assets/areca-robot.jpg" alt="Autonomous Arecanut Drying Robot - Field view" loading="eager" fetchpriority="high">
+                            <img class="project-hero-photo" src="assets/areca-2.jpg" alt="Autonomous Arecanut Drying Robot - Electronics and wiring" loading="lazy">
+                            <img class="project-hero-photo" src="assets/areca-3.jpg" alt="Autonomous Arecanut Drying Robot - Chassis assembly and motor drives" loading="lazy">
+                            <img class="project-hero-photo" src="assets/areca-4.jpg" alt="Autonomous Arecanut Drying Robot - Field testing on drying yard" loading="lazy">
+                            <img class="project-hero-photo" src="assets/areca-5.jpg" alt="Autonomous Arecanut Drying Robot - Mechanical roller and chassis" loading="lazy">
                         </div>
                         <button class="c-btn c-prev" onclick="moveCarousel(-1)" aria-label="Previous image">❮</button>
                         <button class="c-btn c-next" onclick="moveCarousel(1)" aria-label="Next image">❯</button>
                         <div class="carousel-dots" id="arecaDots">
-                            <div class="c-dot active" onclick="setCarousel(0)"></div>
-                            <div class="c-dot" onclick="setCarousel(1)"></div>
-                            <div class="c-dot" onclick="setCarousel(2)"></div>
-                            <div class="c-dot" onclick="setCarousel(3)"></div>
-                            <div class="c-dot" onclick="setCarousel(4)"></div>
+                            <button class="c-dot active" onclick="setCarousel(0)" aria-label="Slide 1"></button>
+                            <button class="c-dot" onclick="setCarousel(1)" aria-label="Slide 2"></button>
+                            <button class="c-dot" onclick="setCarousel(2)" aria-label="Slide 3"></button>
+                            <button class="c-dot" onclick="setCarousel(3)" aria-label="Slide 4"></button>
+                            <button class="c-dot" onclick="setCarousel(4)" aria-label="Slide 5"></button>
                         </div>
                     </div>
                 </div>
@@ -2314,14 +2361,41 @@
             updateCarousel();
         };
 
-        // LOADER
+        // LOADER: Instant smooth dismiss on load
         const ldFill = document.getElementById('ldFill'), ldPct = document.getElementById('ldPct'), loader = document.getElementById('loader');
-        let p = 0;
-        const iv = setInterval(() => {
-            p += Math.random() * 15;
-            if (p >= 100) { p = 100; clearInterval(iv); setTimeout(() => { loader.style.opacity = '0'; setTimeout(() => loader.style.display = 'none', 600); }, 400); }
-            ldFill.style.width = p + '%'; ldPct.textContent = Math.floor(p) + '%';
-        }, 80);
+        function dismissLoader() {
+            if (!loader || loader.dataset.dismissed) return;
+            loader.dataset.dismissed = "true";
+            if (ldFill) ldFill.style.width = '100%';
+            if (ldPct) ldPct.textContent = '100%';
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 300);
+            }, 150);
+        }
+        if (document.readyState === 'complete') {
+            dismissLoader();
+        } else {
+            window.addEventListener('load', dismissLoader);
+            setTimeout(dismissLoader, 600);
+        }
+
+        // Touch swipe support for Carousel
+        let touchStartX = 0, touchEndX = 0;
+        const cTrack = document.getElementById('arecaCarousel');
+        if (cTrack) {
+            cTrack.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            cTrack.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) moveCarousel(1);
+                if (touchEndX > touchStartX + 40) moveCarousel(-1);
+            }, { passive: true });
+        }
+        // Keyboard arrow navigation for Carousel
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') moveCarousel(-1);
+            if (e.key === 'ArrowRight') moveCarousel(1);
+        });
 
         // CURSOR
         const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
